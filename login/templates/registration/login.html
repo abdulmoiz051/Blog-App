@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block self %}
+<div class="container">
+    <h2>Login</h2>
+</div>
+<br>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <button type="submit" class="btn btn-outline-info">Login</button>
+    </form>
+    Forgot your password?
+        <a href="{% url "password_reset" %}" class="btn btn-secondary">forget</a>
+    <p>Create new account</p>
+    <a href="{% url "register" %}" class="btn btn-success">Click</a>
+</div>
+{% endblock self %}

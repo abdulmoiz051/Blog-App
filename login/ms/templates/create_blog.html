@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block self %}
+<div class="container">
+    <div class="alert alert-info" role="alert">
+        Create blog
+    </div>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{create.as_p}}
+        <br>
+        <button type ="submit" class="btn btn-outline-success">Create</button>
+        <a href="{% url "app" %}" class="btn btn-success">Back</a>
+    </form>
+</div>
+{% endblock self %}

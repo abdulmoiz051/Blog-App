@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block self %}
+<br />
+<div class="container">
+  <div class="alert alert-success" role="alert">
+  <h2>Welcome to the website</h2>
+</div>
+</div>
+<br />
+<a href="{% url "blog" %}" class="btn btn-secondary">Create blog</a>
+<div class="container row gap-4">
+  {% for otr in all_blog_list %}
+  <div class="card" style="width: 18rem">
+    {% if otr.Image %}
+    <img src="{{otr.Image.url}}" class="card-img-top" alt="..." />
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">User = {{otr.User}}</h5>
+      <h5 class="card-title">Title = {{otr.Title}}</h5>
+      <p class="card-text">
+        {{otr.Text}}
+      </p>
+      {% if otr.User == user %}
+      <a href="{% url "update" otr.slug%}" class="btn btn-primary mx-2">Update</a>
+      <a href="{% url "delete" otr.slug%}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="my-3">
+    {% if pre %}
+    <a class="btn btn-outline-success" href="?page={{pre}}">&laquo; Back</a>
+    {% else %}
+    <a class="btn btn-outline-success" href="#">&laquo; Back</a>
+  {% endif %}
+  <br>
+  {% if nex %}
+  <a class="btn btn-outline-success" href="?page={{nex}}">Next &raquo;</a>
+  {% else %}
+  <a class="btn btn-outline-success" href="#">Next &raquo;</a>
+  {% endif %}
+</div>
+</div> 
+{% endblock self %}

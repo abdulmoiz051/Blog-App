@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block self %}
+<div class="container">
+    <h2>Create Account</h2>
+</div>
+<br>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{create.as_p}}
+        <br>
+        <button type="submit" class="btn btn-outline-success">Create</button>
+        <br>
+        <br>
+    </form> 
+</div> 
+{% endblock self %}

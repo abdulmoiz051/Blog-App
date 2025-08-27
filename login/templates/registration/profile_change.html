@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block self %}
+<div class="container">
+    <form method ="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% comment %} {{form.profile_picture}} {% endcomment %}
+        {{form.profile_picture}}
+        <br>
+        <br>
+        <button type="submit" class="btn btn-outline-success">Change</button>
+    </form>
+</div>
+{% endblock self %}
