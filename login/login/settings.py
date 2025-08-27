@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["abdulmoiz.onrender.com"]
 
 
 # Application definition
@@ -136,7 +136,6 @@ LOGIN_REDIRECT_URL = '/app/'
 LOGOUT_REDIRECT_URL = '/app/'
 
 AUTH_USER_MODEL = 'ms.custom_user'
-
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
